@@ -3,7 +3,15 @@ const fs = require('fs');
 // const fs = require('express');
 // const fs = require('./fs');
 
-let crearArchivo = (base) => {
+let listarTabla = (base, limite = 10) => {
+
+    for (let i = 1; i <= limite; i++) {
+        console.log(`${ i } x ${ base } = ${i*base}`);
+    }
+
+}
+
+let crearArchivo = (base, limite = 10) => {
 
     return new Promise((resolve, reject) => {
 
@@ -14,7 +22,7 @@ let crearArchivo = (base) => {
 
         let data = '';
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= limite; i++) {
 
             data += `${ base } x ${ i } = ${ base * i }\n`;
 
@@ -34,5 +42,6 @@ let crearArchivo = (base) => {
 }
 
 module.exports = {
-    crearArchivo
+    crearArchivo,
+    listarTabla
 }
